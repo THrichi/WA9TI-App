@@ -1,0 +1,16 @@
+# Logs
+*.log
+
+# IntelliJ
+.idea/
+*.iml
+
+# Java / Spring Boot
+backend/target/
+backend/.idea/
+
+# Node / Angular
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/
+frontend/.vscode/

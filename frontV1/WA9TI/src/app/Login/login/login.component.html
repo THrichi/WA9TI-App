@@ -1,0 +1,7 @@
+<div>{{ 'app.title' | translate }}</div>
+<div>{{ 'app.hello' | translate:{name} }}</div>
+<div class="language-selector">
+  <button (click)="changeLanguage('en')">English</button>
+  <button (click)="changeLanguage('fr')">Français</button>
+  <button (click)="changeLanguage('ar')">العربية</button>
+</div>

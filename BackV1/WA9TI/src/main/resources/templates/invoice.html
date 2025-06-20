@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Facture</title>
+    <style>
+        body { font-family: Arial, sans-serif; font-size: 14px; }
+        .container { width: 90%; margin: auto; padding: 20px; border: 1px solid #ddd; }
+        .header, .footer { text-align: center; margin-bottom: 20px; }
+        h1 { font-size: 22px; }
+        h2 { font-size: 18px; margin-top: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid black; padding: 10px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .total-section { margin-top: 20px; text-align: right; font-size: 1.2em; font-weight: bold; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>Facture</h1>
+        <p>Facture N° : <strong th:text="${invoiceNumber}"></strong></p>
+        <p>Date : <strong th:text="${invoiceDate}"></strong></p>
+    </div>
+
+    <h2>Émetteur</h2>
+    <p><strong>Wa9ti</strong></p>
+    <p>Adresse : 123 Rue des Services, Casablanca, Maroc</p>
+    <p>ICE : 001234567890</p>
+    <p>IF : 987654321</p>
+
+    <h2>Client</h2>
+    <p><strong th:text="${ownerName}"></strong></p>
+    <p th:text="${ownerAddress}"></p>
+    <p th:if="${ownerICE}">ICE : <strong th:text="${ownerICE}"></strong></p>
+
+    <h2>Détails de l'abonnement</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Service</th>
+            <th>Période</th>
+            <th>Prix HT</th>
+            <th>TVA</th>
+            <th>Total TTC</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td th:text="${subscriptionType}"></td>
+            <td th:text="${startDate} + ' - ' + ${endDate}"></td>
+            <td th:text="${amountHT} + ' DH'"></td>
+            <td th:text="${amountTVA} + ' DH'"></td>
+            <td th:text="${amountTTC} + ' DH'"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <p class="total-section">Total à payer : <strong th:text="${amountTTC} + ' MAD'"></strong></p>
+
+    <h2>Informations de paiement</h2>
+    <p>Mode de paiement : <strong th:text="${paymentMethod}"></strong></p>
+
+    <p class="footer">Facture établie en conformité avec les dispositions fiscales en vigueur.</p>
+</div>
+</body>
+</html>
